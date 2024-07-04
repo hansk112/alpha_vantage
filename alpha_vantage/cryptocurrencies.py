@@ -74,16 +74,3 @@ class CryptoCurrencies(av):
         _FUNCTION_KEY = 'CURRENCY_EXCHANGE_RATE'
         return _FUNCTION_KEY, 'Realtime Currency Exchange Rate', None
 
-    @av._output_format
-    @av._call_api_on_func
-    def get_digital_crypto_rating(self, symbol):
-        """ Returns the Fundamental Crypto Asset Score for a digital currency
-        (e.g., BTC), and when it was last updated.
-
-        Keyword Arguments:
-            symbol: The digital/crypto currency of your choice. It can be any
-            of the currencies in the digital currency list. For example:
-            symbol=BTC.
-        """
-        _FUNCTION_KEY = 'CRYPTO_RATING'
-        return _FUNCTION_KEY, 'Crypto Rating (FCAS)', None
