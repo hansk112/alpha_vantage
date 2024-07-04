@@ -148,3 +148,13 @@ class TimeSeries(av):
         """
         _FUNCTION_KEY = "SYMBOL_SEARCH"
         return _FUNCTION_KEY, 'bestMatches', None
+    
+    @av._output_format
+    @av._call_api_on_func
+    def get_market_status(self):
+        """ Return current market status (open vs. closed) of major trading venues. 
+        It raises ValueError when problems arise
+
+        """
+        _FUNCTION_KEY = "MARKET_STATUS"
+        return _FUNCTION_KEY, 'markets', None
