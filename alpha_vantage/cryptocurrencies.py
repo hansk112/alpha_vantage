@@ -92,4 +92,3 @@ class CryptoCurrencies(av):
         """
         _FUNCTION_KEY = 'CRYPTO_INTRADAY'
         return _FUNCTION_KEY, "Time Series Crypto ({})".format(interval), 'Meta Data'
-
