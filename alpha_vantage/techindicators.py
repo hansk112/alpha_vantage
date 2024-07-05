@@ -17,7 +17,7 @@ class TechIndicators(av):
 
     @av._output_format
     @av._call_api_on_func
-    def get_sma(self, symbol, interval='daily', time_period=20, series_type='close'):
+    def get_sma(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
         """ Return simple moving average time series in two json objects as data and
         meta_data. It raises ValueError when problems arise
 
@@ -29,6 +29,9 @@ class TechIndicators(av):
             time_period:  How many data points to average (default 20)
             series_type:  The desired price type in the time series. Four types
                 are supported: 'close', 'open', 'high', 'low' (default 'close')
+            month:  ONLY applicable to intraday intervals. 
+                By default, not set and the technical indicator values will be calculated
+                based on the most recent 30 days of intraday data.
         """
         _FUNCTION_KEY = "SMA"
         return _FUNCTION_KEY, 'Technical Analysis: SMA', 'Meta Data'
