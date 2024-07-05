@@ -73,4 +73,23 @@ class CryptoCurrencies(av):
         """
         _FUNCTION_KEY = 'CURRENCY_EXCHANGE_RATE'
         return _FUNCTION_KEY, 'Realtime Currency Exchange Rate', None
+    
+    @av._output_format
+    @av._call_api_on_func
+    def get_crypto_intraday(self, symbol, market, interval, outputsize='compact'):
+        """ Returns the intraday time series
+        of the cryptocurrency specified, updated realtime.
+
+        Keyword Arguments:
+            symbol:  digital/crypto currency of your choice
+            market:  exchange market of your choice
+            interval:  time interval between two consecutive values,
+                supported values are '1min', '5min', '15min', '30min', '60min'
+            outputsize:  The size of the call, supported values are
+                'compact' and 'full; the first returns the last 100 points in the
+                data series, and 'full' returns the full-length intraday times
+                series (default 'compact')
+        """
+        _FUNCTION_KEY = 'CRYPTO_INTRADAY'
+        return _FUNCTION_KEY, "Time Series Crypto ({})".format(interval), 'Meta Data'
 
