@@ -4,6 +4,7 @@ from .alphavantage import AlphaVantage as av
 class CryptoCurrencies(av):
     """This class implements all the crypto currencies api calls
     """
+
     @av._output_format
     @av._call_api_on_func
     def get_digital_currency_daily(self, symbol, market):
@@ -92,4 +93,3 @@ class CryptoCurrencies(av):
         """
         _FUNCTION_KEY = 'CRYPTO_INTRADAY'
         return _FUNCTION_KEY, "Time Series Crypto ({})".format(interval), 'Meta Data'
-

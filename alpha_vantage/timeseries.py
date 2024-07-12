@@ -154,7 +154,6 @@ class TimeSeries(av):
     def get_market_status(self):
         """ Return current market status (open vs. closed) of major trading venues. 
         It raises ValueError when problems arise
-
         """
         _FUNCTION_KEY = "MARKET_STATUS"
         return _FUNCTION_KEY, 'markets', None
