@@ -8,7 +8,7 @@ class TimeSeries(av):
     @av._output_format
     @av._call_api_on_func
     def get_intraday(self, symbol: str, interval:str='15min', outputsize:str='compact', 
-                     month:str=None, extended_hours:str='true', adjusted:str='true'):
+                     month:str=None, extended_hours:str='true', adjusted:str='true', entitlement=None):
         """ Return intraday time series in two json objects as data and
         meta_data. It raises ValueError when problems arise
 
@@ -32,6 +32,8 @@ class TimeSeries(av):
                 historical split and dividend events. Set adjusted=false to
                 query raw (as-traded) intraday values.
                 (default 'true')
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "TIME_SERIES_INTRADAY"
         return _FUNCTION_KEY, "Time Series ({})".format(interval), 'Meta Data'
@@ -54,7 +56,7 @@ class TimeSeries(av):
 
     @av._output_format
     @av._call_api_on_func
-    def get_daily_adjusted(self, symbol, outputsize='compact'):
+    def get_daily_adjusted(self, symbol, outputsize='compact', entitlement=None):
         """ Return daily adjusted (date, daily open, daily high, daily low,
         daily close, daily split/dividend-adjusted close, daily volume)
         time series in two json objects as data and
@@ -66,6 +68,8 @@ class TimeSeries(av):
                 'compact' and 'full; the first returns the last 100 points in the
                 data series, and 'full' returns the full-length daily times
                 series, commonly above 1MB (default 'compact')
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "TIME_SERIES_DAILY_ADJUSTED"
         return _FUNCTION_KEY, 'Time Series (Daily)', 'Meta Data'
@@ -125,13 +129,14 @@ class TimeSeries(av):
 
     @av._output_format
     @av._call_api_on_func
-    def get_quote_endpoint(self, symbol):
+    def get_quote_endpoint(self, symbol, entitlement=None):
         """ Return the latest price and volume information for a
          security of your choice
 
         Keyword Arguments:
             symbol:  the symbol for the equity we want to get its data
-
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "GLOBAL_QUOTE"
         return _FUNCTION_KEY, 'Global Quote', None
