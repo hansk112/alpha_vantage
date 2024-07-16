@@ -40,7 +40,7 @@ class TechIndicators(av):
 
     @av._output_format
     @av._call_api_on_func
-    def get_ema(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_ema(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return exponential moving average time series in two json objects
         as data and meta_data. It raises ValueError when problems arise
 
@@ -55,13 +55,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "EMA"
         return _FUNCTION_KEY, 'Technical Analysis: EMA', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_wma(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_wma(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return weighted moving average time series in two json objects
         as data and meta_data. It raises ValueError when problems arise
 
@@ -76,13 +78,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "WMA"
         return _FUNCTION_KEY, 'Technical Analysis: WMA', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_dema(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_dema(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return double exponential moving average time series in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -97,13 +101,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "DEMA"
         return _FUNCTION_KEY, 'Technical Analysis: DEMA', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_tema(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_tema(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return triple exponential moving average time series in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -118,13 +124,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "TEMA"
         return _FUNCTION_KEY, 'Technical Analysis: TEMA', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_trima(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_trima(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return triangular moving average time series in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -139,13 +147,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "TRIMA"
         return _FUNCTION_KEY, 'Technical Analysis: TRIMA', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_kama(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_kama(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return Kaufman adaptative moving average time series in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -160,6 +170,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "KAMA"
         return _FUNCTION_KEY, 'Technical Analysis: KAMA', 'Meta Data'
@@ -167,7 +179,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_mama(self, symbol, interval='daily', series_type='close',
-                 fastlimit=None, slowlimit=None, month=None):
+                 fastlimit=None, slowlimit=None, month=None, entitlement=None):
         """ Return MESA adaptative moving average time series in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -185,13 +197,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MAMA"
         return _FUNCTION_KEY, 'Technical Analysis: MAMA', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_vwap(self, symbol, interval='5min', month=None):
+    def get_vwap(self, symbol, interval='5min', month=None, entitlement=None):
         """ Returns the volume weighted average price (VWAP) for intraday time series.
 
         Keyword Arguments:
@@ -202,13 +216,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "VWAP"
         return _FUNCTION_KEY, 'Technical Analysis: VWAP', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_t3(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_t3(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return triple exponential moving average time series in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -223,6 +239,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "T3"
         return _FUNCTION_KEY, 'Technical Analysis: T3', 'Meta Data'
@@ -230,7 +248,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_macd(self, symbol, interval='daily', series_type='close',
-                 fastperiod=None, slowperiod=None, signalperiod=None, month=None):
+                 fastperiod=None, slowperiod=None, signalperiod=None, month=None, entitlement=None):
         """ Return the moving average convergence/divergence time series in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -248,6 +266,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MACD"
         return _FUNCTION_KEY, 'Technical Analysis: MACD', 'Meta Data'
@@ -256,7 +276,7 @@ class TechIndicators(av):
     @av._call_api_on_func
     def get_macdext(self, symbol, interval='daily', series_type='close',
                     fastperiod=None, slowperiod=None, signalperiod=None, fastmatype=None,
-                    slowmatype=None, signalmatype=None, month=None):
+                    slowmatype=None, signalmatype=None, month=None, entitlement=None):
         """ Return the moving average convergence/divergence time series in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -296,6 +316,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MACDEXT"
         return _FUNCTION_KEY, 'Technical Analysis: MACDEXT', 'Meta Data'
@@ -303,7 +325,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_stoch(self, symbol, interval='daily', fastkperiod=None,
-                  slowkperiod=None, slowdperiod=None, slowkmatype=None, slowdmatype=None, month=None):
+                  slowkperiod=None, slowdperiod=None, slowkmatype=None, slowdmatype=None, month=None, entitlement=None):
         """ Return the stochatic oscillator values in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -340,6 +362,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "STOCH"
         return _FUNCTION_KEY, 'Technical Analysis: STOCH', 'Meta Data'
@@ -347,7 +371,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_stochf(self, symbol, interval='daily', fastkperiod=None,
-                   fastdperiod=None, fastdmatype=None, month=None):
+                   fastdperiod=None, fastdmatype=None, month=None, entitlement=None):
         """ Return the stochatic oscillator values in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -378,13 +402,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "STOCHF"
         return _FUNCTION_KEY, 'Technical Analysis: STOCHF', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_rsi(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_rsi(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the relative strength index time series in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -399,6 +425,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "RSI"
         return _FUNCTION_KEY, 'Technical Analysis: RSI', 'Meta Data'
@@ -407,7 +435,7 @@ class TechIndicators(av):
     @av._call_api_on_func
     def get_stochrsi(self, symbol, interval='daily', time_period=20,
                      series_type='close', fastkperiod=None, fastdperiod=None,
-                     fastdmatype=None, month=None):
+                     fastdmatype=None, month=None, entitlement=None):
         """ Return the stochatic relative strength index in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -441,13 +469,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "STOCHRSI"
         return _FUNCTION_KEY, 'Technical Analysis: STOCHRSI', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_willr(self, symbol, interval='daily', time_period=20, month=None):
+    def get_willr(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the Williams' %R (WILLR) values in two json objects as data
         and meta_data. It raises ValueError when problems arise
 
@@ -460,13 +490,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "WILLR"
         return _FUNCTION_KEY, 'Technical Analysis: WILLR', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_adx(self, symbol, interval='daily', time_period=20, month=None):
+    def get_adx(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return  the average directional movement index values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -479,13 +511,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "ADX"
         return _FUNCTION_KEY, 'Technical Analysis: ADX', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_adxr(self, symbol, interval='daily', time_period=20, month=None):
+    def get_adxr(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return  the average directional movement index  rating in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -498,6 +532,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "ADXR"
         return _FUNCTION_KEY, 'Technical Analysis: ADXR', 'Meta Data'
@@ -505,7 +541,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_apo(self, symbol, interval='daily', series_type='close',
-                fastperiod=None, slowperiod=None, matype=None, month=None):
+                fastperiod=None, slowperiod=None, matype=None, month=None, entitlement=None):
         """ Return the absolute price oscillator values in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -535,6 +571,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "APO"
         return _FUNCTION_KEY, 'Technical Analysis: APO', 'Meta Data'
@@ -542,7 +580,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_ppo(self, symbol, interval='daily', series_type='close',
-                fastperiod=None, slowperiod=None, matype=None, month=None):
+                fastperiod=None, slowperiod=None, matype=None, month=None, entitlement=None):
         """ Return the percentage price oscillator values in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -572,13 +610,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "PPO"
         return _FUNCTION_KEY, 'Technical Analysis: PPO', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_mom(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_mom(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the momentum values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -593,13 +633,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MOM"
         return _FUNCTION_KEY, 'Technical Analysis: MOM', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_bop(self, symbol, interval='daily', time_period=20, month=None):
+    def get_bop(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the balance of power values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -612,13 +654,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "BOP"
         return _FUNCTION_KEY, 'Technical Analysis: BOP', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_cci(self, symbol, interval='daily', time_period=20, month=None):
+    def get_cci(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the commodity channel index values  in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -631,13 +675,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "CCI"
         return _FUNCTION_KEY, 'Technical Analysis: CCI', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_cmo(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_cmo(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the Chande momentum oscillator in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -652,13 +698,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "CMO"
         return _FUNCTION_KEY, 'Technical Analysis: CMO', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_roc(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_roc(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the rate of change values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -673,13 +721,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "ROC"
         return _FUNCTION_KEY, 'Technical Analysis: ROC', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_rocr(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_rocr(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the rate of change ratio values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -694,13 +744,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "ROCR"
         return _FUNCTION_KEY, 'Technical Analysis: ROCR', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_aroon(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_aroon(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the aroon values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -715,13 +767,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "AROON"
         return _FUNCTION_KEY, 'Technical Analysis: AROON', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_aroonosc(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_aroonosc(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the aroon oscillator values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -736,13 +790,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "AROONOSC"
         return _FUNCTION_KEY, 'Technical Analysis: AROONOSC', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_mfi(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_mfi(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the money flow index values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -757,13 +813,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MFI"
         return _FUNCTION_KEY, 'Technical Analysis: MFI', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_trix(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_trix(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the1-day rate of change of a triple smooth exponential
         moving average in two json objects as data and meta_data.
         It raises ValueError when problems arise
@@ -779,6 +837,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "TRIX"
         return _FUNCTION_KEY, 'Technical Analysis: TRIX', 'Meta Data'
@@ -786,7 +846,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_ultosc(self, symbol, interval='daily', timeperiod1=None,
-                   timeperiod2=None, timeperiod3=None, month=None):
+                   timeperiod2=None, timeperiod3=None, month=None, entitlement=None):
         """ Return the ultimate oscillaror values in two json objects as
         data and meta_data. It raises ValueError when problems arise
 
@@ -804,13 +864,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "ULTOSC"
         return _FUNCTION_KEY, 'Technical Analysis: ULTOSC', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_dx(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_dx(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the directional movement index values in two json objects as
         data and meta_data. It raises ValueError when problems arise
 
@@ -825,13 +887,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "DX"
         return _FUNCTION_KEY, 'Technical Analysis: DX', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_minus_di(self, symbol, interval='daily', time_period=20, month=None):
+    def get_minus_di(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the minus directional indicator values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -844,13 +908,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MINUS_DI"
         return _FUNCTION_KEY, 'Technical Analysis: MINUS_DI', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_plus_di(self, symbol, interval='daily', time_period=20, month=None):
+    def get_plus_di(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the plus directional indicator values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -863,13 +929,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "PLUS_DI"
         return _FUNCTION_KEY, 'Technical Analysis: PLUS_DI', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_minus_dm(self, symbol, interval='daily', time_period=20, month=None):
+    def get_minus_dm(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the minus directional movement values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -881,13 +949,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MINUS_DM"
         return _FUNCTION_KEY, 'Technical Analysis: MINUS_DM', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_plus_dm(self, symbol, interval='daily', time_period=20, month=None):
+    def get_plus_dm(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the plus directional movement values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -899,6 +969,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "PLUS_DM"
         return _FUNCTION_KEY, 'Technical Analysis: PLUS_DM', 'Meta Data'
@@ -906,7 +978,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_bbands(self, symbol, interval='daily', time_period=20,  series_type='close',
-                   nbdevup=None, nbdevdn=None, matype=None, month=None):
+                   nbdevup=None, nbdevdn=None, matype=None, month=None, entitlement=None):
         """ Return the bollinger bands values in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -941,13 +1013,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "BBANDS"
         return _FUNCTION_KEY, 'Technical Analysis: BBANDS', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_midpoint(self, symbol, interval='daily', time_period=20, series_type='close', month=None):
+    def get_midpoint(self, symbol, interval='daily', time_period=20, series_type='close', month=None, entitlement=None):
         """ Return the midpoint values in two json objects as
         data and meta_data. It raises ValueError when problems arise
 
@@ -962,13 +1036,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MIDPOINT"
         return _FUNCTION_KEY, 'Technical Analysis: MIDPOINT', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_midprice(self, symbol, interval='daily', time_period=20, month=None):
+    def get_midprice(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the midprice values in two json objects as
         data and meta_data. It raises ValueError when problems arise
 
@@ -981,13 +1057,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "MIDPRICE"
         return _FUNCTION_KEY, 'Technical Analysis: MIDPRICE', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_sar(self, symbol, interval='daily', acceleration=None, maximum=None, month=None):
+    def get_sar(self, symbol, interval='daily', acceleration=None, maximum=None, month=None, entitlement=None):
         """ Return the midprice values in two json objects as
         data and meta_data. It raises ValueError when problems arise
 
@@ -1003,13 +1081,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "SAR"
         return _FUNCTION_KEY, 'Technical Analysis: SAR', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_trange(self, symbol, interval='daily', month=None):
+    def get_trange(self, symbol, interval='daily', month=None, entitlement=None):
         """ Return the true range values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1021,13 +1101,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "TRANGE"
         return _FUNCTION_KEY, 'Technical Analysis: TRANGE', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_atr(self, symbol, interval='daily', time_period=20, month=None):
+    def get_atr(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the average true range values in two json objects as
         data and meta_data. It raises ValueError when problems arise
 
@@ -1040,13 +1122,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "ATR"
         return _FUNCTION_KEY, 'Technical Analysis: ATR', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_natr(self, symbol, interval='daily', time_period=20, month=None):
+    def get_natr(self, symbol, interval='daily', time_period=20, month=None, entitlement=None):
         """ Return the normalized average true range values in two json objects
         as data and meta_data. It raises ValueError when problems arise
 
@@ -1059,13 +1143,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "NATR"
         return _FUNCTION_KEY, 'Technical Analysis: NATR', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_ad(self, symbol, interval='daily', month=None):
+    def get_ad(self, symbol, interval='daily', month=None, entitlement=None):
         """ Return the Chaikin A/D line values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1077,6 +1163,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "AD"
         return _FUNCTION_KEY, 'Technical Analysis: Chaikin A/D', 'Meta Data'
@@ -1084,7 +1172,7 @@ class TechIndicators(av):
     @av._output_format
     @av._call_api_on_func
     def get_adosc(self, symbol, interval='daily', fastperiod=None,
-                  slowperiod=None, month=None):
+                  slowperiod=None, month=None, entitlement=None):
         """ Return the Chaikin A/D oscillator values in two
         json objects as data and meta_data. It raises ValueError when problems
         arise
@@ -1099,13 +1187,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "ADOSC"
         return _FUNCTION_KEY, 'Technical Analysis: ADOSC', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_obv(self, symbol, interval='daily', month=None):
+    def get_obv(self, symbol, interval='daily', month=None, entitlement=None):
         """ Return the on balance volume values in two json
         objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1117,13 +1207,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "OBV"
         return _FUNCTION_KEY, 'Technical Analysis: OBV', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_ht_trendline(self, symbol, interval='daily', series_type='close', month=None):
+    def get_ht_trendline(self, symbol, interval='daily', series_type='close', month=None, entitlement=None):
         """ Return the Hilbert transform, instantaneous trendline values in two
         json objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1137,13 +1229,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "HT_TRENDLINE"
         return _FUNCTION_KEY, 'Technical Analysis: HT_TRENDLINE', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_ht_sine(self, symbol, interval='daily', series_type='close', month=None):
+    def get_ht_sine(self, symbol, interval='daily', series_type='close', month=None, entitlement=None):
         """ Return the Hilbert transform, sine wave values in two
         json objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1157,13 +1251,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "HT_SINE"
         return _FUNCTION_KEY, 'Technical Analysis: HT_SINE', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_ht_trendmode(self, symbol, interval='daily', series_type='close', month=None):
+    def get_ht_trendmode(self, symbol, interval='daily', series_type='close', month=None, entitlement=None):
         """ Return the Hilbert transform, trend vs cycle mode in two
         json objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1177,13 +1273,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "HT_TRENDMODE"
         return _FUNCTION_KEY, 'Technical Analysis: HT_TRENDMODE', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_ht_dcperiod(self, symbol, interval='daily', series_type='close', month=None):
+    def get_ht_dcperiod(self, symbol, interval='daily', series_type='close', month=None, entitlement=None):
         """ Return the Hilbert transform, dominant cycle period in two
         json objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1197,13 +1295,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "HT_DCPERIOD"
         return _FUNCTION_KEY, 'Technical Analysis: HT_DCPERIOD', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_ht_dcphase(self, symbol, interval='daily', series_type='close', month=None):
+    def get_ht_dcphase(self, symbol, interval='daily', series_type='close', month=None, entitlement=None):
         """ Return the Hilbert transform, dominant cycle phase in two
         json objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1217,13 +1317,15 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "HT_DCPHASE"
         return _FUNCTION_KEY, 'Technical Analysis: HT_DCPHASE', 'Meta Data'
 
     @av._output_format
     @av._call_api_on_func
-    def get_ht_phasor(self, symbol, interval='daily', series_type='close', month=None):
+    def get_ht_phasor(self, symbol, interval='daily', series_type='close', month=None, entitlement=None):
         """ Return the Hilbert transform, phasor components in two
         json objects as data and meta_data. It raises ValueError when problems arise
 
@@ -1237,6 +1339,8 @@ class TechIndicators(av):
             month:  ONLY applicable to intraday intervals. 
                 By default, not set and the technical indicator values will be calculated
                 based on the most recent 30 days of intraday data.
+            entitlement:  Supported values are 'realtime' for realtime US stock market data
+                or 'delayed' for 15-minute delayed US stock market data
         """
         _FUNCTION_KEY = "HT_PHASOR"
         return _FUNCTION_KEY, 'Technical Analysis: HT_PHASOR', 'Meta Data'
