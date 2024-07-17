@@ -47,6 +47,17 @@ ts = TimeSeries(key='YOUR_API_KEY')
 # Get json object with the intraday data and another with  the call's metadata
 data, meta_data = ts.get_intraday('GOOGL')
 ```
+To query data from a specific month in history, you may use the 'month' parameter for various features.
+```python
+from alpha_vantage.timeseries import TimeSeries
+from alpha_vantage.techindicators import TechIndicators
+ts = TimeSeries(key='YOUR_API_KEY')
+ti = TechIndicators(key='YOUR_API_KEY')
+# Get json object with the intraday data and another with  the call's metadata for January, 2014.
+data, meta_data = ts.get_intraday('GOOGL', month='2014-01')
+#Get json object with the simple moving average (SMA) values and another with  the call's metadata for January, 2014.
+data, meta_data = ti.get_sma('GOOGL', month='2014-01')
+```
 You may also get a key from [rapidAPI](https://rapidapi.com/alphavantage/api/alpha-vantage-alpha-vantage-default). Use your rapidAPI key for the key variable, and set ```rapidapi=True```
 
 ```python
