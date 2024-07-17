@@ -58,7 +58,7 @@ Internally there is a retries counter, that can be used to minimize connection e
 ```python
 ts = TimeSeries(key='YOUR_API_KEY',retries='YOUR_RETRIES')
 ```
-The library supports giving its results as json dictionaries (default), pandas dataframe (if installed) or csv, simply pass the parameter output_format='pandas' to change the format of the output for all the API calls in the given class. Please note that some API calls do not support the csv format (namely ```ForeignExchange, SectorPerformances and TechIndicators```) because the API endpoint does not support the format on their calls either.
+The library supports giving its results as json dictionaries (default), pandas dataframe (if installed) or csv, simply pass the parameter output_format='pandas' to change the format of the output for all the API calls in the given class. Please note that some API calls do not support the csv format (namely ```ForeignExchange and TechIndicators```) because the API endpoint does not support the format on their calls either.
 
 ```python
 ts = TimeSeries(key='YOUR_API_KEY',output_format='pandas')
@@ -120,26 +120,6 @@ plt.show()
 ```
 Giving us as output:
 ![alt text](images/docs_ti_msft_example.png?raw=True "MSFT minute value plot example")
-
-### Sector Performance
-We can also plot sector performance just as easy:
-
-```python
-from alpha_vantage.sectorperformance import SectorPerformances
-import matplotlib.pyplot as plt
-
-sp = SectorPerformances(key='YOUR_API_KEY', output_format='pandas')
-data, meta_data = sp.get_sector()
-data['Rank A: Real-Time Performance'].plot(kind='bar')
-plt.title('Real Time Performance (%) per Sector')
-plt.tight_layout()
-plt.grid()
-plt.show()
-```
-
-Giving us as output:
-
-![alt text](images/docs_sp_rt_example.png?raw=True "Real Time Sector Performance")
 
 ### Crypto currencies.
 
