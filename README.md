@@ -14,7 +14,7 @@ For code-less access to financial market data, you may also consider [Wisesheets
 
 ## News
 
-* From version 3.0.0 onwards, all options, commodities, and economic indicators are supported, as well as various additional features in alpha intelligence and fundamental data. All sector performance, extended intraday, and the FCAS crypto rating have been depreciated. Support for the month parameter for technical indicators and entitlement, as necessary, have also been added.
+* From version 3.0.0 onwards, all options, commodities, and economic indicators are supported, as well as various additional features in alpha intelligence and fundamental data. All sector performance, extended intraday, and the FCAS crypto rating have been deprecated. Support for the month parameter for technical indicators and entitlement, as necessary, have also been added.
 * From version 2.3.0 onwards, fundamentals data and extended intraday is supported.
 * From version 2.2.0 onwards, asyncio support now provided. See below for more information. 
 * From version 2.1.3 onwards, [rapidAPI](https://rapidapi.com/alphavantage/api/alpha-vantage/) key integration is now available.
@@ -53,10 +53,10 @@ from alpha_vantage.timeseries import TimeSeries
 from alpha_vantage.techindicators import TechIndicators
 ts = TimeSeries(key='YOUR_API_KEY')
 ti = TechIndicators(key='YOUR_API_KEY')
-# Get json object with the intraday data and another with  the call's metadata for January, 2014.
-data, meta_data = ts.get_intraday('GOOGL', month='2014-01')
-#Get json object with the simple moving average (SMA) values and another with  the call's metadata for January, 2014.
-data, meta_data = ti.get_sma('GOOGL', month='2014-01')
+# Get json object with the 30-min interval intraday data and another with  the call's metadata for January, 2014.
+data, meta_data = ts.get_intraday('GOOGL', month='2014-01', interval='30min')
+#Get json object with the 30-min interval simple moving average (SMA) values and another with  the call's metadata for January, 2014.
+data, meta_data = ti.get_sma('GOOGL', month='2014-01', interval='30min')
 ```
 You may also get a key from [rapidAPI](https://rapidapi.com/alphavantage/api/alpha-vantage-alpha-vantage-default). Use your rapidAPI key for the key variable, and set ```rapidapi=True```
 
